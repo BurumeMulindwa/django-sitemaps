@@ -1,6 +1,8 @@
 from django.urls import path
-from myapp.views import about, snippet_detail
+
+from .views import SnippetListView, SnippetDetailView
+
 urlpatterns = [
-    path('<slug:slug>/', snippet_detail),
-    path('about/', about, name='about')
+    path('<int:pk>', SnippetDetailView.as_view(), name='snippet_detail'),
+    path('', SnippetListView.as_view(), name='snippet_list'),
 ]

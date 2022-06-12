@@ -1,0 +1,7 @@
+<!-- snippet_list.html -->
+<h1>Snippet</h1>
+{% for snippet in object_list %}
+  <ul>
+    <li><a href="{{ snippet.get_absolute_url }}">{{ snippet.title }}</a></li>
+  </ul>
+{% endfor %}

@@ -1,13 +1,13 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
 
-from myapp.models import Snippet
-
-
-def about(request):
-    return HttpResponse('about page')
+from .models import Snippet
 
 
-def snippet_detail(request, slug):
-    snippet = get_object_or_404(Snippet, slug=slug)
-    return HttpResponse(f'the detailview for slug of {slug}')
+class SnippetListView(ListView):
+    model = Snippet
+    template_name = 'snippet_list.html'
+
+
+class SnippetDetailView(DetailView):
+    model = Snippet
+    template_name = 'snippet_detail.html'
